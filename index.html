@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Username Generator</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-background text-secondary">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <nav class="container mx-auto px-4 py-6">
+      <h1 class="text-3xl font-bold text-center">Random Username Generator</h1>
+    </nav>
+  </header>
+
+  <!-- Generator Section -->
+  <section class="container mx-auto px-4 py-12">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Left: Generator Form -->
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <form id="generator-form" class="space-y-6">
+          <div class="space-y-4">
+            <label class="block">
+              <span class="text-lg font-medium">Username Length: <span id="length-value">12</span></span>
+              <input type="range" id="length" min="6" max="20" value="12" class="w-full">
+            </label>
+
+            <div class="space-y-2">
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" id="include-letters" checked class="rounded">
+                <span>Include Letters</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" id="include-numbers" checked class="rounded">
+                <span>Include Numbers</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" id="include-symbols" class="rounded">
+                <span>Include Special Characters</span>
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="text-lg font-medium">Custom Words (optional)</span>
+              <input type="text" id="custom-words" placeholder="Enter words to include" class="w-full mt-1 rounded-lg border-gray-300 shadow-sm">
+            </label>
+          </div>
+
+          <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors">
+            Generate Usernames
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Results -->
+      <div id="results" class="space-y-2 min-h-[200px]"></div>
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <div class="container mx-auto px-4 py-12 space-y-16">
+    <!-- Features -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Features</h2>
+      <ul class="space-y-2">
+        <li class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Customizable username length (6-20 characters)</span>
+        </li>
+        <li class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Include letters, numbers, and special characters</span>
+        </li>
+        <li class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Generate multiple usernames at once</span>
+        </li>
+        <li class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>One-click copy functionality</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- How It Works -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">How It Works</h2>
+      <ol class="space-y-4">
+        <li class="flex space-x-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center">1</span>
+          <p>Choose your desired username length using the slider</p>
+        </li>
+        <li class="flex space-x-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center">2</span>
+          <p>Select which characters to include in your username</p>
+        </li>
+        <li class="flex space-x-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center">3</span>
+          <p>Optionally add custom words to incorporate into the usernames</p>
+        </li>
+        <li class="flex space-x-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center">4</span>
+          <p>Click generate and choose from the suggested usernames</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- FAQ -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">FAQ</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-medium">Why use a username generator?</h3>
+          <p class="text-gray-600">A username generator helps create unique, memorable usernames that meet specific requirements while saving time and effort.</p>
+        </div>
+        <div>
+          <h3 class="font-medium">Are the generated usernames unique?</h3>
+          <p class="text-gray-600">While our generator creates random combinations, we recommend verifying availability on your target platform.</p>
+        </div>
+        <div>
+          <h3 class="font-medium">Can I customize the generated usernames?</h3>
+          <p class="text-gray-600">Yes, you can include custom words and choose which types of characters to include in your username.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white mt-12">
+    <div class="container mx-auto px-4 py-8">
+      <p class="text-center text-gray-600">© 2024 Username Generator. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
